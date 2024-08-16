@@ -1,0 +1,63 @@
+import os
+import csv
+from openpyxl import load_workbook
+
+# Pobierz listę wszystkich plików w bieżącym katalogu roboczym
+for excelFile in os.listdir('.'):
+    # Sprawdź, czy plik ma rozszerzenie .xlsx
+    if not excelFile.endswith('.xlsx'):
+        continue  # Pomijamy pliki, które nie są plikami Excel
+
+    # Załaduj plik Excel
+    wb = load_workbook(excelFile)
+
+    # Dla każdego arkusza w pliku Excel
+    for sheetName in wb.sheetnames:
+        sheet = wb[sheetName]
+
+        # Stwórz nazwę pliku CSV na podstawie nazwy pliku Excel i nazwy arkusza
+        csvFilename = f"{os.path.splitext(excelFile)[0]}_{sheet.title}.csv"
+        
+        # Otwórz nowy plik CSV
+        with open(csvFilename, 'w', newline='') as csvFile:
+            csvWriter = csv.writer(csvFile)
+            
+            # Przechodzimy przez każdy wiersz w arkuszu
+            for rowNum in range(1, sheet.max_row + 1):
+                rowData = []
+                
+                # Przechodzimy przez każdą komórkę w wierszu
+                for colNum in range(1, sheet.max_column + 1):
+                    cellValue = sheet.cell(row=rowNum, column=colNum).value
+                    rowData.append(cellValue)
+                
+                # Zapisz dane wiersza do pliku CSV
+                csvWriter.writerow(rowData)
+
+print("Konwersja zakończona pomyślnie!")
+
+
+
+
+#Wyjaśnienie kroków:
+#Importowanie modułów:
+
+#os: Używany do pracy z plikami i katalogami.
+#csv: Używany do zapisu danych do pliku CSV.
+#openpyxl: Używany do pracy z plikami Excel.
+#Przeglądanie plików w katalogu:
+
+#Program przeszukuje wszystkie pliki w bieżącym katalogu roboczym i sprawdza, czy są to pliki Excel (.xlsx).
+#Praca z arkuszami:
+
+#Dla każdego pliku Excel, program ładuje jego zawartość i przechodzi przez każdy arkusz.
+#Tworzenie nazw plików CSV:
+
+#Każdy arkusz jest zapisany jako osobny plik CSV z nazwą utworzoną na podstawie nazwy pliku Excel i tytułu arkusza.
+#Zapis danych do pliku CSV:
+
+#Program przechodzi przez każdą komórkę w każdym wierszu arkusza i zapisuje dane do pliku CSV.
+#Informacja o zakończeniu:
+
+#Po zakończeniu konwersji wyświetla komunikat o sukcesie.
+#Ten program umożliwia szybkie i łatwe konwertowanie wielu plików Excel do formatu CSV bez potrzeby ręcznego zapisywania każdego arkusza.
