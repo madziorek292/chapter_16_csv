@@ -1,0 +1,29 @@
+Practice Questions (Pytania Praktyczne)
+What are some features Excel spreadsheets have that CSV spreadsheets don’t?
+
+Jakie funkcje mają arkusze Excel, których nie mają arkusze CSV?
+Arkusze Excel mają wiele zaawansowanych funkcji, których brakuje arkuszom CSV. Excel obsługuje formatowanie komórek (kolory, czcionki, obramowania), formuły, tabele przestawne, wykresy, wiele arkuszy w jednym pliku, a także makra. CSV to po prostu tekstowy format danych, który przechowuje tylko wartości komórek bez żadnego formatowania czy zaawansowanych funkcji.
+What do you pass to csv.reader() and csv.writer() to create reader and writer objects?
+
+Co przekazujesz do funkcji csv.reader() i csv.writer(), aby utworzyć obiekty reader i writer?
+Do funkcji csv.reader() przekazuje się obiekt pliku otwartego w trybie odczytu ('r'), a do funkcji csv.writer() przekazuje się obiekt pliku otwartego w trybie zapisu ('w').
+What modes do File objects for reader and writer objects need to be opened in?
+
+W jakich trybach muszą być otwierane obiekty plików dla obiektów reader i writer?
+Obiekt pliku dla csv.reader() musi być otwarty w trybie odczytu ('r'), a obiekt pliku dla csv.writer() musi być otwarty w trybie zapisu ('w').
+What method takes a list argument and writes it to a CSV file?
+
+Jaka metoda przyjmuje argument w postaci listy i zapisuje go do pliku CSV?
+Metoda writerow() przyjmuje argument w postaci listy i zapisuje go jako wiersz w pliku CSV.
+What do the delimiter and lineterminator keyword arguments do?
+
+Do czego służą argumenty kluczowe delimiter i lineterminator?
+Argument delimiter określa znak, który będzie używany jako separator między wartościami w CSV (domyślnie jest to przecinek), natomiast lineterminator określa znak lub sekwencję znaków, które będą używane do zakończenia linii w pliku CSV.
+What function takes a string of JSON data and returns a Python data structure?
+
+Jaka funkcja przyjmuje ciąg danych JSON i zwraca strukturę danych Pythona?
+Funkcja json.loads() przyjmuje ciąg danych w formacie JSON i zwraca odpowiadającą mu strukturę danych w Pythonie.
+What function takes a Python data structure and returns a string of JSON data?
+
+Jaka funkcja przyjmuje strukturę danych Pythona i zwraca ciąg danych w formacie JSON?
+Funkcja json.dumps() przyjmuje strukturę danych w Pythonie i zwraca ją jako ciąg danych w formacie JSON.
